@@ -14,8 +14,18 @@ file compare methods
 - other
 
 ## Examples
-
+create a instance with New method and
+call a method you want to compare files with.
 ```
+	// create file path string
+	user, _ := user.Current()
+	file1 := user.HomeDir + `/512.zip`
+	file2 := user.HomeDir + `/512.zip`
 
+	comp := filecomparator.New()
+	result, _ := comp.CompareMD5(file1, file2)
+
+	// result is true since same file are compared.
+	t.Log(result)
 
 ```
