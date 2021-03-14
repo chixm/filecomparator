@@ -45,3 +45,15 @@ func TestCompareError(t *testing.T) {
 	t.Log(result)
 	t.Log(err)
 }
+
+func TestCompareSha1(t *testing.T) {
+	user, _ := user.Current()
+	file1 := user.HomeDir + `/512.zip`
+	file2 := user.HomeDir + `/512.zip`
+
+	comp := filecomparator.New()
+	result, _ := comp.CompareSHA1(file1, file2)
+
+	// result is true since same file are compared.
+	t.Log(result)
+}

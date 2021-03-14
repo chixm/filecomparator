@@ -21,3 +21,15 @@ func (m *comparator) CompareMD5(filePath, compareFilePath string) (bool, error) 
 	}
 	return (mdx == mdy), nil
 }
+
+func (m *comparator) CompareSHA1(filePath, compareFilePath string) (bool, error) {
+	sha1Hash1, err := getFileSha1(filePath)
+	if err != nil {
+		return false, err
+	}
+	sha1Hash2, err := getFileSha1(compareFilePath)
+	if err != nil {
+		return false, nil
+	}
+	return (sha1Hash1 == sha1Hash2), nil
+}
